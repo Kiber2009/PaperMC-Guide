@@ -3,13 +3,18 @@ plugins {
     id("xyz.jpenilla.run-paper") version "3.1.0"
 }
 
+group = "io.github.kiber2009.plugin"
+version = "1.0-SNAPSHOT"
+
+val mcVersion = "26.2"
+
 repositories {
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/")
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:26.2.build.+")
+    compileOnly("io.papermc.paper:paper-api:$mcVersion.build.+")
 }
 
 java {
@@ -18,15 +23,12 @@ java {
 
 tasks {
     runServer {
-        // Configure the Minecraft version for our task.
-        // This is the only required configuration besides applying the plugin.
-        // Your plugin's jar (or shadowJar if present) will be used automatically.
-        minecraftVersion("26.2")
+        minecraftVersion(mcVersion)
         jvmArgs("-Xms2G", "-Xmx2G", "-Dcom.mojang.eula.agree=true")
     }
 
     processResources {
-        val props = mapOf("version" to version, "description" to project.description)
+        val props = mapOf("version" to version, "mc_version" to mcVersion)
         filesMatching("plugin.yml") {
             expand(props)
         }

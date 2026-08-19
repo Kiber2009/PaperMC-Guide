@@ -1,10 +1,10 @@
 name: guide
-description: $description
+description: "Guide plugin"
 prefix: GUIDE
-version: '${version}'
+version: "${version}"
 
 main: io.github.kiber2009.plugin.guide.GuidePlugin
-api-version: '26.2'
+api-version: "${mc_version}"
 load: POSTWORLD
 
 authors: [ Kiber2009, AnotherGuy ]
