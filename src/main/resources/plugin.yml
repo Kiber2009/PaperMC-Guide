@@ -1,0 +1,11 @@
+name: guide
+description: $description
+prefix: GUIDE
+version: '${version}'
+
+main: io.github.kiber2009.plugin.guide.GuidePlugin
+api-version: '26.2'
+load: POSTWORLD
+
+authors: [ Kiber2009, AnotherGuy ]
+website: https://example.com/
