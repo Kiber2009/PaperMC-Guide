@@ -9,3 +9,11 @@ load: POSTWORLD
 
 authors: [ Kiber2009, AnotherGuy ]
 website: https://example.com/
+
+commands:
+  calculator:
+    description: Калькулятор
+    aliases:
+      - calc
+      - калькулятор
+    usage: /<command> <n1> <+|-|*|/> <n2>

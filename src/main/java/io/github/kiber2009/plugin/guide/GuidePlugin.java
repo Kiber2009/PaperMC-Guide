@@ -1,10 +1,22 @@
 package io.github.kiber2009.plugin.guide;
 
+import io.github.kiber2009.plugin.guide.commands.CalcCommand;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.PluginCommand;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.Objects;
 
 public final class GuidePlugin extends JavaPlugin {
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        registerCommand("calculator", new CalcCommand());
+    }
+
+    private <T extends CommandExecutor & TabCompleter> void registerCommand(final String name, final T command) {
+        final PluginCommand cmd = Objects.requireNonNull(getCommand(name));
+        cmd.setExecutor(command);
+        cmd.setTabCompleter(command);
     }
 }
