@@ -10,6 +10,11 @@ public class CalcCommand implements TabExecutor {
     @Override
     public boolean onCommand(final @NotNull CommandSender sender, final @NotNull Command command,
                              final @NotNull String label, final @NotNull String @NotNull [] args) {
+        if (!sender.hasPermission("guide.calculator")) {
+            sender.sendMessage("Недостаточно прав");
+            return false;
+        }
+
         if (args.length < 3) {
             sender.sendMessage("Недостаточно аргументов");
             return false;

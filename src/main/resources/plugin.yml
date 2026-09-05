@@ -17,3 +17,19 @@ commands:
       - calc
       - калькулятор
     usage: /<command> <n1> <+|-|*|/> <n2>
+    permission: guide.calculator
+    permission-message: Недостаточно прав
+  allow:
+    usage: /<command> <permission>
+
+permissions:
+  guide.calculator:
+    description: Использование калькулятора
+    default: op
+    children:
+      - guide.calculator.add
+      - guide.calculator.substract
+      - guide.calculator.multiply
+      - guide.calculator.divide
+
+default-permission: false
