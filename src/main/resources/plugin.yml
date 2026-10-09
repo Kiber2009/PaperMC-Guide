@@ -21,6 +21,7 @@ commands:
     permission-message: Недостаточно прав
   allow:
     usage: /<command> <permission>
+  comp:
 
 permissions:
   guide.calculator:
